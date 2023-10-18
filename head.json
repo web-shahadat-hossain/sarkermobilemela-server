@@ -1,0 +1,64 @@
+[
+ 
+    
+   
+ 
+   
+    {
+      "title": "Headphone Model 6",
+      "price": "59.99",
+      "description": "On-ear headphones designed for travel and portability.",
+      "category": "headphone",
+      "image": ["https://i.ibb.co/0BwZd2f/5.png", "https://i.ibb.co/TrFP8rt/3.png", "https://i.ibb.co/KNwWSMC/2.png" , "https://i.ibb.co/61hZqRq/6.png"],
+      "stock": 10,
+      "color": ["Black", "White"],
+      "brand": "SoundBliss"
+    },
+    {
+      "title": "Headphone Model 7",
+      "price": "89.99",
+      "description": "Wireless headphones with long battery life and great sound quality.",
+      "category": "headphone",
+      "image": ["https://i.ibb.co/nbcWzHk/4.png", "https://i.ibb.co/TrFP8rt/3.png", "https://i.ibb.co/KNwWSMC/2.png",  "https://i.ibb.co/0BwZd2f/5.png"],
+      "stock": 10,
+      "color": ["Red", "Black"],
+      "brand": "AudioWave"
+    },
+    {
+      "title": "Headphone Model 8",
+      "price": "139.99",
+      "description": "Over-ear headphones for audiophiles seeking premium sound.",
+      "category": "headphone",
+      "image": ["https://i.ibb.co/TrFP8rt/3.png", "https://i.ibb.co/KNwWSMC/2.png", "https://i.ibb.co/K7yw1R6/1.png", "https://i.ibb.co/nbcWzHk/4.png"],
+      "stock": 10,
+      "color": ["Black", "Gold"],
+      "brand": "SonicBlitz"
+    },
+    {
+      "title": "Headphone Model 9",
+      "price": "99.99",
+      "description": "Wireless sport headphones designed for active users.",
+      "category": "headphone",
+      "image": ["https://i.ibb.co/KNwWSMC/2.png", "https://i.ibb.co/K7yw1R6/1.png", "https://i.ibb.co/TrFP8rt/3.png", "https://i.ibb.co/nbcWzHk/4.png"],
+      "stock": 10,
+      "color": ["Blue", "Green"],
+      "brand": "SportSounds"
+    },
+    {
+      "title": "Headphone Model 10",
+      "price": "119.99",
+      "description": "Comfortable on-ear headphones for all-day listening.",
+      "category": "headphone",
+      "image": ["https://i.ibb.co/K7yw1R6/1.png", "https://i.ibb.co/KNwWSMC/2.png" , "https://i.ibb.co/TrFP8rt/3.png", "https://i.ibb.co/nbcWzHk/4.png"],
+      "stock": 10,
+      "color": ["Black", "Blue"],
+      "brand": "AudioBeats"
+    }
+  ]
+  
+
+
+
+
+
+

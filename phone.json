@@ -1,0 +1,29 @@
+[
+   
+    
+   
+  
+  
+    {
+      "title": "Phone Model 9",
+      "price": "899.99",
+      "description": "Premium phone with cutting-edge technology.",
+      "category": "phone",
+      "image": ["https://i.ibb.co/YP3pjJ9/2.png", "https://i.ibb.co/x6sNxXD/1.png", "https://i.ibb.co/YP3pjJ9/2.png", "https://i.ibb.co/SwZGxR3/4.png"],
+      "stock": 10,
+      "color": ["Gold", "Black"],
+      "brand": "Phone Brand F"
+    },
+    {
+      "title": "Phone Model 10",
+      "price": "599.99",
+      "description": "Feature-packed phone with great battery life.",
+      "category": "phone",
+      "image": ["https://i.ibb.co/x6sNxXD/1.png", "https://i.ibb.co/YP3pjJ9/2.png", "https://i.ibb.co/SwZGxR3/4.png", "https://i.ibb.co/HBJzjpW/5.png"],
+      "stock": 10,
+      "color": ["Blue", "Red"],
+      "brand": "Phone Brand G"
+    }
+  ]
+
+
