@@ -18,7 +18,7 @@ const createSingleOrder = catchAsync(async (req: Request, res: Response) => {
 
 const allGetSingleOrder = catchAsync(async (req: Request, res: Response) => {
 
-  const result = await orderServices.allGetCartOrder();
+  const result = await orderServices.allGetSingleOrder();
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

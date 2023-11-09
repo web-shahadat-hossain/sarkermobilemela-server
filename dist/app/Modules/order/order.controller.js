@@ -39,7 +39,7 @@ const createSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void
     });
 }));
 const allGetSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield order_services_1.orderServices.allGetCartOrder();
+    const result = yield order_services_1.orderServices.allGetSingleOrder();
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
