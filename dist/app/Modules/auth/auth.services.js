@@ -21,7 +21,7 @@ const jwtHelpers_1 = require("../../../helpers/jwtHelpers");
 const config_1 = __importDefault(require("../../../config"));
 const loginUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = payload;
-    const isExistUser = yield user_model_1.User.findOne({ email }, { email: 1, password: 1 }).lean();
+    const isExistUser = yield user_model_1.User.findOne({ email }, { _id: 1, password: 1, role: 1, email: 1 }).lean();
     if (!isExistUser) {
         throw new apiError_1.default(http_status_1.default.NOT_FOUND, 'User does not exist');
     }
@@ -30,13 +30,12 @@ const loginUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     if (!matchPassword) {
         throw new apiError_1.default(http_status_1.default.UNAUTHORIZED, 'password is incorrect');
     }
-    const { email: Email, role } = isExistUser;
-    const secretToken = jwtHelpers_1.jwtHelpers.createToken({ email: Email, role }, config_1.default.jwt.secret_token, config_1.default.jwt.secret_expire_in);
-    const refreshToken = jwtHelpers_1.jwtHelpers.createToken({ email: Email, role }, config_1.default.jwt.refresh_token, config_1.default.jwt.refresh_expire_in);
+    const secretToken = jwtHelpers_1.jwtHelpers.createToken({ email: isExistUser.email, role: isExistUser.role }, config_1.default.jwt.secret_token, config_1.default.jwt.secret_expire_in);
+    const refreshToken = jwtHelpers_1.jwtHelpers.createToken({ email: isExistUser.email, role: isExistUser.role }, config_1.default.jwt.refresh_token, config_1.default.jwt.refresh_expire_in);
     return {
         secretToken,
         refreshToken,
-        email: Email
+        email: isExistUser.email
     };
 });
 exports.authServices = {

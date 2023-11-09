@@ -33,7 +33,6 @@ const auth_services_1 = require("./auth.services");
 const loginUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const loginData = __rest(req.body, []);
     const result = yield auth_services_1.authServices.loginUser(loginData);
-    console.log(result);
     const { refreshToken } = result, others = __rest(result, ["refreshToken"]);
     const cookieOption = {
         secure: config_1.default.env === 'production',

@@ -39,7 +39,7 @@ const createSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void
     });
 }));
 const allGetSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield order_services_1.orderServices.allGetSingleOrder();
+    const result = yield order_services_1.orderServices.allGetCartOrder();
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -47,9 +47,9 @@ const allGetSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void
         data: result,
     });
 }));
-const updateSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const updateCartOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const result = yield order_services_1.orderServices.updateSingleOrder(id);
+    const result = yield order_services_1.orderServices.updateCartOrder(id);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -67,9 +67,63 @@ const deleteSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void
         data: result,
     });
 }));
+const createCartOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const data = __rest(req.body, []);
+    const result = yield order_services_1.orderServices.createOrderCart(data);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Order successfully!',
+        data: result,
+    });
+}));
+const allGetCartOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_services_1.orderServices.allGetCartOrder();
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Successfully!',
+        data: result,
+    });
+}));
+const randomFindCartOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.params;
+    const result = yield order_services_1.orderServices.randomFindCartOrder(email);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Successfully!',
+        data: result,
+    });
+}));
+const updateSingleOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield order_services_1.orderServices.updateCartOrder(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Update Successfully!',
+        data: result,
+    });
+}));
+const deleteCartOrder = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id } = req.params;
+    const result = yield order_services_1.orderServices.deleteCartOrder(id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: 'Delete Successfully!',
+        data: result,
+    });
+}));
 exports.orderController = {
     createSingleOrder,
     allGetSingleOrder,
     updateSingleOrder,
     deleteSingleOrder,
+    createCartOrder,
+    allGetCartOrder,
+    updateCartOrder,
+    deleteCartOrder,
+    randomFindCartOrder
 };

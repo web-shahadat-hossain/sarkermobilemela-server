@@ -12,6 +12,18 @@ const createUserZodSchema = z.object({
   }),
 });
 
+const updateUser = z.object({
+  body: z.object({
+    name: z.string().optional(),
+    password: z.string().optional(),
+    contactNo: z.string().optional(),
+    address: z.string().optional(),
+    image: z.string().optional(),
+  }),
+});
+
+
 export const UserValidation = {
   createUserZodSchema,
+  updateUser
 };

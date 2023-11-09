@@ -15,3 +15,14 @@ export type IOrder = {
   status:boolean;
   };
   
+export type IOrderCart = {
+  products: IProduct[];
+  name:string;
+  contactNo:string;
+  email:string;
+  transactionId:string;
+  address:string;
+  status:boolean;
+  total:string;
+  };
+  

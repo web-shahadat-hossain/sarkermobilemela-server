@@ -12,7 +12,7 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
 
   const isExistUser = await User.findOne(
     { email },
-    { email: 1, password: 1 }
+    { _id: 1, password: 1 , role:1, email:1}
   ).lean();
   if (!isExistUser) {
     throw new apiError(httpStatus.NOT_FOUND, 'User does not exist');
@@ -24,23 +24,22 @@ const loginUser = async (payload: ILoginUser): Promise<ILoginUserResponse> => {
     throw new apiError(httpStatus.UNAUTHORIZED, 'password is incorrect');
   }
 
-  const { email: Email, role } = isExistUser;
 
   const secretToken = jwtHelpers.createToken(
-    { email: Email, role },
+    { email: isExistUser.email, role:isExistUser.role },
     config.jwt.secret_token as Secret,
     config.jwt.secret_expire_in as string
   );
 
   const refreshToken = jwtHelpers.createToken(
-    { email: Email, role },
+    { email: isExistUser.email, role:isExistUser.role },
     config.jwt.refresh_token as Secret,
     config.jwt.refresh_expire_in as string
   );
   return {
     secretToken,
     refreshToken,
-    email:Email
+    email:isExistUser.email
   };
 };
 

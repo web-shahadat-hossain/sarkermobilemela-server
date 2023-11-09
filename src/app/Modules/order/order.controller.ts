@@ -18,7 +18,7 @@ const createSingleOrder = catchAsync(async (req: Request, res: Response) => {
 
 const allGetSingleOrder = catchAsync(async (req: Request, res: Response) => {
 
-  const result = await orderServices.allGetSingleOrder();
+  const result = await orderServices.allGetCartOrder();
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -27,9 +27,11 @@ const allGetSingleOrder = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-const updateSingleOrder = catchAsync(async (req: Request, res: Response) => {
+
+
+const updateCartOrder = catchAsync(async (req: Request, res: Response) => {
 const {id}= req.params
-  const result = await orderServices.updateSingleOrder(id);
+  const result = await orderServices.updateCartOrder(id);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -50,10 +52,83 @@ const {id}= req.params
   });
 });
 
+
+const createCartOrder = catchAsync(async (req: Request, res: Response) => {
+  const { ...data } = req.body;
+  const result = await orderServices.createOrderCart(data);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order successfully!',
+    data: result,
+  });
+});
+
+
+const allGetCartOrder = catchAsync(async (req: Request, res: Response) => {
+
+  const result = await orderServices.allGetCartOrder();
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Successfully!',
+    data: result,
+  });
+});
+const randomFindCartOrder = catchAsync(async (req: Request, res: Response) => {
+  const {email}= req.params
+  const result = await orderServices.randomFindCartOrder(email);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Successfully!',
+    data: result,
+  });
+});
+
+
+
+const updateSingleOrder = catchAsync(async (req: Request, res: Response) => {
+const {id}= req.params
+  const result = await orderServices.updateCartOrder(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Update Successfully!',
+    data: result,
+  });
+});
+
+
+
+const deleteCartOrder = catchAsync(async (req: Request, res: Response) => {
+const {id}= req.params
+  const result = await orderServices.deleteCartOrder(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Delete Successfully!',
+    data: result,
+  });
+});
+
+
+
+
 export const orderController = {
     createSingleOrder,
     allGetSingleOrder,
     updateSingleOrder,
     deleteSingleOrder,
+    createCartOrder,
+    allGetCartOrder,
+    updateCartOrder,
+    deleteCartOrder,
+    randomFindCartOrder
    
 };

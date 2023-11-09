@@ -21,6 +21,8 @@ const productSchema = new Schema<IProduct>(
       required: true,
     },
     brand: { type: String, required: true }, // Added the 'brand' property
+    feature: { type: [String], required: true }, // Added the 'brand' property
+    discount: { type: Number, required: true }, // Added the 'brand' property
   },
   { timestamps: true }
 );

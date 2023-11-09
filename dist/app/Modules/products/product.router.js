@@ -8,8 +8,10 @@ const express_1 = __importDefault(require("express"));
 const validateRequest_1 = __importDefault(require("../../../middleware/validateRequest"));
 const product_controller_1 = require("./product.controller");
 const product_validation_1 = require("./product.validation");
+const authRequest_1 = __importDefault(require("../../../middleware/authRequest"));
+const role_1 = require("../../../enums/role");
 const router = express_1.default.Router();
-router.post('/create-product', (0, validateRequest_1.default)(product_validation_1.productValidation.createProductZodSchema), product_controller_1.productController.createProduct);
+router.post('/create-product', (0, authRequest_1.default)(role_1.ENUM_ROLE.ADMIN, role_1.ENUM_ROLE.superAdmin), (0, validateRequest_1.default)(product_validation_1.productValidation.createProductZodSchema), product_controller_1.productController.createProduct);
 router.get('/', product_controller_1.productController.allProducts);
 router.get('/:id', product_controller_1.productController.singleProducts);
 exports.productRouters = {

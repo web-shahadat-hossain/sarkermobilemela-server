@@ -36,7 +36,7 @@ const updateSingleOrder = (id) => __awaiter(void 0, void 0, void 0, function* ()
         new: true,
     }))) === null || _a === void 0 ? void 0 : _a.populate('productsId');
     if (!result) {
-        throw new apiError_1.default(400, 'Failed to Order get!');
+        throw new apiError_1.default(400, 'Failed to Order Update!');
     }
     return result;
 });
@@ -44,9 +44,49 @@ const deleteSingleOrder = (id) => __awaiter(void 0, void 0, void 0, function* ()
     const result = (yield order_modal_1.Order.findByIdAndDelete({ _id: id }));
     return result;
 });
+const createOrderCart = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    data.status = false;
+    const result = (yield order_modal_1.OrderCart.create(data));
+    if (!result) {
+        throw new apiError_1.default(400, 'Failed to Order!');
+    }
+    return result;
+});
+const allGetCartOrder = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_modal_1.OrderCart.find({});
+    if (!result) {
+        throw new apiError_1.default(400, 'Failed to Order get!');
+    }
+    return result;
+});
+const randomFindCartOrder = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_modal_1.OrderCart.find({ email: email });
+    if (!result) {
+        throw new apiError_1.default(400, 'Failed to Order get!');
+    }
+    return result;
+});
+const updateCartOrder = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = (yield order_modal_1.OrderCart.findOneAndUpdate({ _id: id }, { status: true }, {
+        new: true,
+    }));
+    if (!result) {
+        throw new apiError_1.default(400, 'Failed to Order Update!');
+    }
+    return result;
+});
+const deleteCartOrder = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = (yield order_modal_1.OrderCart.findByIdAndDelete({ _id: id }));
+    return result;
+});
 exports.orderServices = {
     createSingleOrder,
     allGetSingleOrder,
     updateSingleOrder,
-    deleteSingleOrder
+    deleteSingleOrder,
+    createOrderCart,
+    allGetCartOrder,
+    randomFindCartOrder,
+    updateCartOrder,
+    deleteCartOrder
 };

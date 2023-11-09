@@ -9,13 +9,13 @@ import { authServices } from './auth.services';
 const loginUser = catchAsync(async (req: Request, res: Response) => {
   const { ...loginData } = req.body;
   const result = await authServices.loginUser(loginData);
-  console.log(result);
   const { refreshToken, ...others } = result;
   const cookieOption = {
     secure: config.env === 'production',
     httpOnly: true,
   };
 
+  
   res.cookie('refreshToken', refreshToken, cookieOption);
 
   sendResponse(res, {

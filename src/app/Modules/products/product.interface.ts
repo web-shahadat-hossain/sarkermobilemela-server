@@ -7,4 +7,8 @@ export type IProduct = {
   stock: number;
   color: string[];
   brand: string;
+  feature:string[];
+  discount:number;
+  quantityCart?:number;
 };
+

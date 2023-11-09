@@ -20,6 +20,8 @@ const productSchema = new mongoose_1.Schema({
         type: [String],
         required: true,
     },
-    brand: { type: String, required: true }, // Added the 'brand' property
+    brand: { type: String, required: true },
+    feature: { type: [String], required: true },
+    discount: { type: Number, required: true }, // Added the 'brand' property
 }, { timestamps: true });
 exports.Product = (0, mongoose_1.model)('Products', productSchema);
